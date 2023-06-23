@@ -1,0 +1,12 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: '/console'
+  datasource:
+    url: 'jdbc:h2:file:C:\\Users\\User\\IdeaProjects\\todo-app\\todo-db'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
