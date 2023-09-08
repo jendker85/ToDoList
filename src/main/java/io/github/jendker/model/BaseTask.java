@@ -1,5 +1,6 @@
 package io.github.jendker.model;
 
+import io.github.jendker.model.event.TaskEvent;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
@@ -39,8 +40,9 @@ public class BaseTask {
         return done;
     }
 
-    public void setDone(boolean done) {
-        this.done = done;
+    public TaskEvent toggle() {
+        this.done = !this.done;
+        return TaskEvent.changed(this);
     }
     public void updateFrom(BaseTask source){
         description = source.description;
